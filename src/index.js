@@ -36,18 +36,10 @@ export class Twilio {
   }
 
   /**
-   * @param {Person | Person[]} recipient
+   * @param {Person} recipient
    */
   addRecipient(recipient) {
     this.recipients = this.recipients.concat(recipient)
-    return this
-  }
-
-  /**
-   * @param {string} name
-   */
-  recipient(name) {
-    const recipient = this.#getRecipient(name)
     return new TwilioRecipient(this.#client, this.sender, recipient)
   }
 
